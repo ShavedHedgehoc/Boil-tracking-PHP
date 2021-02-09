@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ?>
 <p>
-    <h3>Информация по взвешиваниям:</h3>
+<h3>Информация по взвешиваниям:</h3>
 </p>
 <?php if (!empty($data)) : ?>
     <table>
@@ -43,7 +43,8 @@ ini_set('display_errors', 1);
                         <?php echo $row['AuthorName'] ?>
                     </td>
                     <td align="center">
-                        <?php echo $row['Quantity'] ?>
+                        <?php printf('%0.5g', $row['Quantity']) ?>
+                        <!-- <?php echo $row['Quantity'] ?> -->
                     </td>
                     <td align="center">
                         <?php echo (date_format($row['CreateDate'], 'd-m-Y')) ?>

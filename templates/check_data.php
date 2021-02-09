@@ -46,7 +46,7 @@ ini_set('display_errors', 1);
                         <?php echo $counter ?>
                     </td>
                     <td align="center">
-                        <?php echo (date_format($row['BatchDate'], 'd-m-Y')) ?>                        
+                        <?php echo (date_format($row['BatchDate'], 'd-m-Y')) ?>
                     </td>
                     <td align="center">
                         <a href="batch_detail.php?batchname=<?php echo urlencode($row['BatchName']) ?>">
@@ -62,7 +62,8 @@ ini_set('display_errors', 1);
                         </a>
                     </td>
                     <td align="center">
-                        <?php echo $row['Quantity'] ?>
+                        <?php printf('%0.5g', $row['Quantity']) ?>
+                        <!-- <?php echo $row['Quantity'] ?> -->
                     </td>
                     <?php if (!empty($row['Total'])) : ?>
                         <?php if ($row['Total'] != $row['Quantity']) : ?>
