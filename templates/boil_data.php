@@ -14,6 +14,11 @@ ini_set('display_errors', 1);
     <h3>Площадка: Колпино</h3>
 <?php endif ?>
 </p>
+<!-- <form action="card_detail.php" method="GET">
+    <input type="hidden" name="batchname" value="<?php echo $batchname; ?>">
+    <input type="submit" value="Печать">
+</form> -->
+<!-- here -->
 
 <table>
     <thead>
