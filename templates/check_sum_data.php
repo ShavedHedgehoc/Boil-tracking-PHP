@@ -2,7 +2,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ?>
-
 <?php if (!empty($data)) : ?>
     <table>
         <thead>
@@ -24,22 +23,24 @@ ini_set('display_errors', 1);
                         <?php echo (date_format($row['BatchDate'], 'd-m-Y')) ?>
                     </td>
                     <td align="center">
-                        <a href="batch_detail.php?batchname=<?php echo urlencode($row['BatchName']) ?>">
-                            <?php echo $row['BatchName'] ?>
-                        </a>
+                        <?php echo $row['BatchName'] ?>
                     </td>
                     <td align="center">
-                        <form action="card_detail.php" method="GET">
-                            <input type="submit" value="Карточка">
+                        <form action="" method="POST">
+                            <input type="submit" name="act" value="Варка" class="button buttongreen">
+                            <input type="submit" name="act" value="Карточка" class="button buttonblue">
                             <input type="hidden" name="batchname" value=<?php echo $row['BatchName'] ?>>
+                            <?php
+                            if (isset($_POST['act']) && isset($_POST['batchname'])) {
+                                if ($_POST['act'] == "Варка") {
+                                    header("Location:batch_detail.php?batchname=" . $_POST['batchname']);
+                                };
+                                if ($_POST['act'] == "Карточка") {
+                                    header("Location:card_detail.php?batchname=" . $_POST['batchname']);
+                                };
+                            };
+                            ?>
                         </form>
-
-
-
-
-                        <!-- <a href="card_detail.php?batchname=<?php echo urlencode($row['BatchName']) ?>">
-                            <?php echo $row['BatchName'] ?>
-                        </a> -->
                     </td>
                 </tr>
                 <?php $counter += 1; ?>
