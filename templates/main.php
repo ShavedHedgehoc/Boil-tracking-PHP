@@ -8,12 +8,8 @@
 </head>
 
 <body>
-    <div class="menu">
-        <?php include $_SERVER['DOCUMENT_ROOT'] . '/templates/menu.php'; ?>
-    </div>
-    <?php
-    include $content;
-    ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/templates/menu.php'; ?>
+    <div class="content"><?php include $content; ?></div>
 </body>
 
 </html>
